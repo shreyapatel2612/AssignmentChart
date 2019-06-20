@@ -1,6 +1,3 @@
-import string
-
-from azure.storage.blob import BlockBlobService
 from flask import Flask, render_template, request
 import pyodbc
 import os
@@ -28,15 +25,9 @@ driver = '{ODBC Driver 17 for SQL Server}'
 cnxn = pyodbc.connect(
     'DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
-
-block_blob_service = BlockBlobService(account_name = 'sqlvakgqkpxaark5yc', account_key = 'Qn2gu7TMRNXNLnodJakn4xaGrJoUD84FLxVCHcHaB+EyYamhbNhUyEedCA72J+gLrjDHziD7n2Joaw5HqTheKQ==')
-
-container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name)
-
 @app.route('/')
 def home():
-    return render_template('layout9.html')
+    return render_template('home.html')
 
 @app.route('/q6', methods=['POST', 'GET'])
 def q6():
