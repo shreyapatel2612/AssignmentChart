@@ -1,14 +1,6 @@
 from flask import Flask, render_template, request
 import pyodbc
-import os
-import redis
-import time
 import random
-import redis
-import plotly.plotly as py
-import plotly.graph_objs as go
-from math import sin, cos, sqrt, atan2, radians
-from plotly.figure_factory import np
 
 application = app = Flask(__name__)
 
