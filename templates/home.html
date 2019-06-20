@@ -6,12 +6,39 @@
     <h4>Shreya Patel, 1001646429</h4>
     <header><h1> Home </h1></header>
 
-     <form action="{{ url_for('options') }}" method="POST">
+    <form action="{{ url_for('q6') }}" method="POST">
+        <label>Latitude:</label>
+        <label>lat1:</label>
+        <input type="text" name="lat1"/>
+        <label>lat2:</label>
+        <input type="text" name="lat2"/><br>
+
+        <label>Longitude:</label>
+        <label>long1:</label>
+        <input type="text" name="long1"/>
+        <label>long2:</label>
+        <input type="text" name="long2"/>
+        <input type="submit" value="submit"/>
+    </form><br>
+    <form action="{{ url_for('q8') }}" method="POST">
+        <input type="submit" value="submit"/>
+    </form><br>
+
+    <form action="{{ url_for('options') }}" method="POST">
         <label>Enter number:</label>
         <input type="text" name="num"/>
-        <input type="submit" value="submit"/><br>
-    </form>
-
+        <input type="submit" value="submit"/>
+    </form><br>
+    <form action="{{ url_for('historical') }}" method="POST">
+        <label>Enter number:</label>
+        <input type="text" name="num"/>
+        <input type="submit" value="submit"/>
+    </form><br>
+    <form action="{{ url_for('chart_column') }}" method="POST">
+        <label>Enter number:</label>
+        <input type="text" name="num"/>
+        <input type="submit" value="submit"/>
+    </form><br>
 </center>
 </body>
 </html>

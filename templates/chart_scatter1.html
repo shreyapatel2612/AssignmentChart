@@ -6,7 +6,7 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-          var dataset = {{ p|tojson }}
+       var dataset = {{ p|tojson }}
         {#var data = google.visualization.arrayToDataTable([#}
         {#  ['Mag', 'Query Count'],#}
         {#  [ 8,      12],#}
@@ -29,12 +29,34 @@
 
         chart.draw(data, options);
       }
+       function drawBarChart() {
+        var dataset = {{ p|tojson }}
+        var data = google.visualization.arrayToDataTable(dataset);
+        var options = {
+        title: 'Mag vs. Query Count comparison',
+            legend:'none',
+        hAxis: {
+          title: 'Mag',
+        },
+        vAxis: {
+          title: 'Query Count'
+        },
+             axes: {
+            x: {
+              0: { side: 'top', label: 'White to move'} // Top x-axis.
+            }
+          }
+      };
+        var chart = new google.visualization.BarChart(document.getElementById('col_chart'));
+
+        chart.draw(data,options);
+      }
     </script>
   </head>
   <body>
   <center>
-    <h1>1001626250</h1>
-    <h1>Venkatesan, Charan</h1>
+    <h1>1001646429</h1>
+    <h1>Shreya Patel</h1>
     <h1>Assignment 4</h1>
     <p>Execution Time : {{ etime }}</p>
     <p>Points : {{ p }}</p>
