@@ -19,8 +19,25 @@ cnxn = pyodbc.connect(
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    cur = cnxn.cursor()
+    cur.execute(
+        "select StateName from voting WHERE TotalPop between 2000 and  8000 ")
+    get1 = cur.fetchall()
+    cur.execute(
+        "select StateName from voting WHERE TotalPop between 8000 and  40000 ")
+    get2= cur.fetchall()
+    print(get1)
+    return render_template('home.html', rows=get1, rows1=get2)
 
+#----------------------------------------------Exam --------------------------------------------------------
+@app.route('/q5', methods=['POST', 'GET'])
+def q5():
+    cur = cnxn.cursor()
+    cur.execute("select StateName from voting WHERE TotalPop > 2000 and TotalPop < 8000 and TotalPop > 8 and TotalPop < 40 ")
+    get = cur.fetchall()
+    return render_template('home.html', rows=get)
+
+#----------------------------------------------Exam --------------------------------------------------------
 @app.route('/q6', methods=['POST', 'GET'])
 def q6():
     lat1 = float(request.form['lat1'])
@@ -60,14 +77,14 @@ def q7():
     c.append(['age', 'Lat'])
     # val = round(random.uniform(2,5),1)
     cur = cnxn.cursor()
-    cur.execute("select age,fare from minnow WHERE Age between ? and ? and Lat between ? and ?",
-                (age1, age2, cab1 + '%', cab2 + '%'))
+    cur.execute("select age,fare from assign4 WHERE Age between ? and ? and CabinNum between ? and ?",
+                (age1, age2, cab1, cab2))
     get = cur.fetchall()
     for row in get:
-        c.append([row[0]])
+        c.append([row[0], row[1]])
         print(c)
         # points.append([row[0], row[1]])
-    return render_template("list1.html", rows=c)
+    return render_template("scatter7.html", p=c)
 
 @app.route('/q8', methods=['POST', 'GET'])
 def q8():

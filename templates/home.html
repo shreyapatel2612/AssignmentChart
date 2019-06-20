@@ -1,44 +1,69 @@
 <!doctype html>
 <html>
+<head>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+    </style>
+</head>
 <body>
 
 <center>
-    <h4>Shreya Patel, 1001646429</h4>
+    <h1> Patel, Shreya 1001646429</h1>
     <header><h1> Home </h1></header>
+    <div class="row">
+        ********************** 2 to 8 million ******************
+        <table border=1>
+            <thead>
+            <td>State Name</td>
+            </thead>
+            <tbody>
+            {% for row in rows%}
+            <tr>
+                <td>{{row}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <form action="{{ url_for('q6') }}" method="POST">
-        <label>Latitude:</label>
-        <label>lat1:</label>
-        <input type="text" name="lat1"/>
-        <label>lat2:</label>
-        <input type="text" name="lat2"/><br>
+    ********************* 8 to 40 million ************
+    <div class="row">
+        </table>
+        <br>
+        <table border=1>
+            <thead>
+            <td>State Name</td>
+            </thead>
+            <tbody>
+            {% for row in rows1%}
+            <tr>
+                <td>{{row}}</td>
+            </tr>
+            {% endfor %}
 
-        <label>Longitude:</label>
-        <label>long1:</label>
-        <input type="text" name="long1"/>
-        <label>long2:</label>
-        <input type="text" name="long2"/>
-        <input type="submit" value="submit"/>
-    </form><br>
-    <form action="{{ url_for('q8') }}" method="POST">
-        <input type="submit" value="submit"/>
-    </form><br>
+            </tbody>
 
-    <form action="{{ url_for('options') }}" method="POST">
-        <label>Enter number:</label>
-        <input type="text" name="num"/>
-        <input type="submit" value="submit"/>
-    </form><br>
-    <form action="{{ url_for('historical') }}" method="POST">
-        <label>Enter number:</label>
-        <input type="text" name="num"/>
-        <input type="submit" value="submit"/>
-    </form><br>
-    <form action="{{ url_for('chart_column') }}" method="POST">
-        <label>Enter number:</label>
-        <input type="text" name="num"/>
-        <input type="submit" value="submit"/>
-    </form><br>
+        </table>
+    </div>
+
 </center>
 </body>
 </html>
